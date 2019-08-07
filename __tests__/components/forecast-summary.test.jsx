@@ -1,6 +1,6 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import ForecastSummary from '../src/components/forecast-summary';
+import ForecastSummary from '../../src/components/forecast-summary';
 
 
 describe('<ForecastSummary/>', () => {
