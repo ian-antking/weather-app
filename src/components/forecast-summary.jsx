@@ -8,7 +8,7 @@ const ForecastSummary = props => {
       <br />
       <span className="icon">{props.icon}</span>
       <br />
-      <span className="temperature">{props.temperature}</span>
+      <span className="temperature">{props.temperature}°c</span>
       <br />
       <span className="description">{props.description}</span>
     </div>
