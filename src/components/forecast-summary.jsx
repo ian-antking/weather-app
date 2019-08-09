@@ -6,7 +6,11 @@ const ForecastSummary = props => {
     <div>
       <span className="date">{props.date}</span>;
       <br />
-      <span className="temperature">{props.temperature.max}</span>
+      <span className="icon">{props.icon}</span>
+      <br />
+      <span className="temperature">{props.temperature}</span>
+      <br />
+      <span className="description">{props.description}</span>
     </div>
   );
 };
@@ -14,6 +18,7 @@ const ForecastSummary = props => {
 ForecastSummary.propTypes = {
   date: PropTypes.number.isRequired,
   temperature: PropTypes.number.isRequired,
+  description: PropTypes.string.isRequired,
 };
 
 export default ForecastSummary;
