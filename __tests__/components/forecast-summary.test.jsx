@@ -1,11 +1,12 @@
 import React from 'react';
-import { shallow } from 'enzyme';
+import Enzyme from 'enzyme';
 import ForecastSummary from '../../src/components/forecast-summary';
 
 
 describe('<ForecastSummary/>', () => {
-  it('renders the passed date', () => {
-    const wrapper = shallow((
+  let wrapper;
+  beforeEach(() => {
+    wrapper = Enzyme.shallow((
       <ForecastSummary
         date="mockDate"
         temperature="mockTemperature"
@@ -13,42 +14,25 @@ describe('<ForecastSummary/>', () => {
         icon="mockIcon"
       />
     ));
-    expect(wrapper.find('.forecast-summary__date').text().toEqual('mockDate'));
+  });
+
+  it('renders the passed date', () => {
+    const text = wrapper.find('.date').text();
+    expect(text).toEqual('mockDate');
   });
 
   it('renders the passed temperature', () => {
-    const wrapper = shallow((
-      <ForecastSummary
-        date="mockDate"
-        temperature="mockTemperature"
-        description="mockDescription"
-        icon="mockIcon"
-      />
-    ));
-    expect(wrapper.find('forecast-summary__temperature').text().toEqual('mockTemperature'));
+    const text = wrapper.find('.temperature').text();
+    expect(text).toEqual('mockTemperature°c');
   });
 
   it('renders the passed description', () => {
-    const wrapper = shallow((
-      <ForecastSummary
-        date="mockDate"
-        temperature="mockTemperature"
-        description="mockDescription"
-        icon="mockIcon"
-      />
-    ));
-    expect(wrapper.find('.forecast-summary__description').text().toEqual('mockDescription'));
+    const text = wrapper.find('.description').text();
+    expect(text).toEqual('mockDescription');
   });
 
   it('renders the passed icon', () => {
-    const wrapper = shallow((
-      <ForecastSummary
-        date="mockDate"
-        temperature="mockTemperature"
-        description="mockDescription"
-        icon="mockIcon"
-      />
-    ));
-    expect(wrapper.find('.forecast-summary__icon').text().toEqual('mockIcon'));
+    const text = wrapper.find('.icon').text();
+    expect(text).toEqual('mockIcon');
   });
 });
