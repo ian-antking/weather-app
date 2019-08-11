@@ -25,7 +25,7 @@ class App extends React.Component {
           city={this.props.location.city}
           country={this.props.location.country}
         />
-        <ForecastSummaries forecasts={this.props.forecasts} />
+        <ForecastSummaries forecasts={this.props.forecasts} onForecastSelect={this.handleForecastSelect} />
         <ForecastDetails forecasts={selectedForecast} />
       </div>
     );
