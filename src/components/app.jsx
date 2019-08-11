@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import LocationDetails from './location-details';
 import ForecastSummaries from './forecast-summaries';
+import ForecastDetails from './forecast-details';
 import '../styles/app.scss';
 
 const App = props => (
@@ -10,8 +11,8 @@ const App = props => (
       city={props.location.city}
       country={props.location.country}
     />
-
     <ForecastSummaries forecasts={props.forecasts} />
+    <ForecastDetails forecasts={props.forecasts[0]} />
   </div>
 );
 

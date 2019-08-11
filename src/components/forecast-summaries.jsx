@@ -10,7 +10,7 @@ const ForecastSummaries = props => (
             key={forecast.date}
             date={forecast.date}
             icon={forecast.icon}
-            temperature={forecast.temperature.max}
+            temperatureMax={forecast.temperature.max}
             description={forecast.description}
           />
         ))

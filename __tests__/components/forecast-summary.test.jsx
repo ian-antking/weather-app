@@ -8,22 +8,22 @@ describe('<ForecastSummary/>', () => {
   beforeEach(() => {
     wrapper = Enzyme.shallow((
       <ForecastSummary
-        date="mockDate"
-        temperature="mockTemperature"
+        date={1525046400000}
+        temperature={10}
         description="mockDescription"
-        icon="mockIcon"
+        icon={800}
       />
     ));
   });
 
-  it('renders the passed date', () => {
+  it('takes the date and renders in the correct format', () => {
     const text = wrapper.find('.date').text();
-    expect(text).toEqual('mockDate');
+    expect(text).toEqual('Mon 30th Apr');
   });
 
   it('renders the passed temperature', () => {
     const text = wrapper.find('.temperature').text();
-    expect(text).toEqual('mockTemperature°c');
+    expect(text).toEqual('10°c');
   });
 
   it('renders the passed description', () => {
@@ -32,7 +32,7 @@ describe('<ForecastSummary/>', () => {
   });
 
   it('renders the passed icon', () => {
-    const text = wrapper.find('.icon').text();
-    expect(text).toEqual('mockIcon');
+    const img = wrapper.find('.icon');
+    expect(img).toEqual('mockIcon');
   });
 });
