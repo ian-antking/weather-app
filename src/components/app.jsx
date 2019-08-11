@@ -13,6 +13,10 @@ class App extends React.Component {
     };
   }
 
+  handleForecastSelect(date) {
+    this.setState({ selectedDate: date });
+  }
+
   render() {
     const selectedForecast = this.props.forecasts.find(forecast => forecast.date === this.state.selectedDate);
     return (

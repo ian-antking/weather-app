@@ -13,6 +13,7 @@ const ForecastSummary = props => {
       <span className="temperature">{props.temperatureMax}°c</span>
       <br />
       <span className="description">{props.description}</span>
+      <buton>More details</buton>
     </div>
   );
 };
