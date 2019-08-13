@@ -3,7 +3,7 @@ import LocationDetails from './location-details';
 import ForecastSummaries from './forecast-summaries';
 import ForecastDetails from './forecast-details';
 import '../styles/app.scss';
-import axios from 'axios';
+import SearchForm from './search-form';
 
 class App extends React.Component {
   constructor(props) {
@@ -34,7 +34,7 @@ class App extends React.Component {
         },
         forecasts: data.forecasts,
       }));
-  };
+  }
 
   render() {
     const selectedForecast = this.state.forecasts.find(forecast => forecast.date === this.state.selectedDate);
@@ -44,6 +44,7 @@ class App extends React.Component {
           city={this.state.location.city}
           country={this.state.location.country}
         />
+        <SearchForm/>
         <ForecastSummaries forecasts={this.state.forecasts} onForecastSelect={this.handleForecastSelect} />
 
         {
