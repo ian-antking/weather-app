@@ -17,14 +17,14 @@ class App extends React.Component {
       },
     };
     this.handleForecastSelect = this.handleForecastSelect.bind(this);
+    this.handleCitySearch = this.handleCitySearch.bind(this);
   }
 
   handleForecastSelect(date) {
     this.setState({ selectedDate: date });
   }
 
-  componentDidMount() {
-    const url = 'https://mcr-codes-weather.herokuapp.com/forecast?city=manchester';
+  getData(url) {
     fetch(url)
       .then(response => response.json())
       .then(data => this.setState({
@@ -36,6 +36,17 @@ class App extends React.Component {
       }));
   }
 
+  componentDidMount() {
+    const url = 'https://mcr-codes-weather.herokuapp.com/forecast?city=London';
+    this.getData(url);
+  }
+
+  handleCitySearch(city) {
+    const newCity = city;
+    const url = `https://mcr-codes-weather.herokuapp.com/forecast?city=${newCity}`;
+    this.getData(url);
+  }
+
   render() {
     const selectedForecast = this.state.forecasts.find(forecast => forecast.date === this.state.selectedDate);
     return (
@@ -44,7 +55,7 @@ class App extends React.Component {
           city={this.state.location.city}
           country={this.state.location.country}
         />
-        <SearchForm/>
+        <SearchForm handleClick={this.handleCitySearch} />
         <ForecastSummaries forecasts={this.state.forecasts} onForecastSelect={this.handleForecastSelect} />
 
         {
