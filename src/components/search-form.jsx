@@ -11,22 +11,36 @@ class SearchForm extends React.Component {
     };
   }
 
-  handleInputChange(event) {
-    this.setState({ searchText: event.target.value });
+  handleInputChange(e) {
+    if (e.charCode !== 13) {
+      this.setState({ searchText: e.target.value });
+    }
   }
 
   handleCityChange(e) {
-    e.preventDefault();
-    const newCity = this.state.searchText;
-    this.props.handleClick(newCity);
-    this.setState({ searchText: '' });
+    if (e.target.tagName === 'BUTTON' || e.charCode === 13) {
+      const newCity = this.state.searchText;
+      this.props.handleClick(newCity);
+      this.setState({ searchText: '' });
+    }
   }
 
   render() {
     return (
       <div className="search">
-        <input type="text" placeholder="City Name" onChange={this.handleInputChange} value={this.state.searchText} />
-        <button type="button" onClick={this.handleCityChange}>Search</button>
+        <input
+          type="text"
+          placeholder="City Name"
+          onChange={this.handleInputChange}
+          onKeyPress={this.handleCityChange}
+          value={this.state.searchText}
+        />
+        <button
+          type="button" 
+          onClick={this.handleCityChange}
+        >
+        Search
+        </button>
       </div>
     );
   }

@@ -55,7 +55,10 @@ class App extends React.Component {
           city={this.state.location.city}
           country={this.state.location.country}
         />
-        <SearchForm handleClick={this.handleCitySearch} />
+        <SearchForm
+          handleClick={this.handleCitySearch}
+          handleKeyPress={this.handleCitySearch}
+        />
         <ForecastSummaries forecasts={this.state.forecasts} onForecastSelect={this.handleForecastSelect} />
 
         {

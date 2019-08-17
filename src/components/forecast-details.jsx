@@ -5,7 +5,7 @@ import '../styles/forecast-details.scss'
 
 const ForecastDetails = props => {
   return (
-    <div>
+    <div className="forecast-details">
       <span className="date">{Moment(props.forecasts.date).format('ddd Do MMM')}</span>
       <br />
       <span className="temperatureMax">Max Temperature: {props.forecasts.temperature.max}°c</span>
