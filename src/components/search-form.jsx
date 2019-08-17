@@ -19,6 +19,7 @@ class SearchForm extends React.Component {
     e.preventDefault();
     const newCity = this.state.searchText;
     this.props.handleClick(newCity);
+    this.setState({ searchText: '' });
   }
 
   render() {
